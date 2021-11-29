@@ -11,9 +11,8 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Button } from "@mui/material";
+import Rating from "@mui/material/Rating";
 
 const Title = styled.h1`
   text-align: center;
@@ -22,36 +21,22 @@ const Title = styled.h1`
 const Prod_container = styled.div`
   margin: auto;
   height: auto;
-  width: 50%;
+  width: 60%;
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-column-gap: 20px;
-  grid-row-gap: 10px;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
   text-align: center;
+  transition: 0.2s;
 `;
 
-const Prod_Box = styled.div`
-  height: auto;
-  border: 2px solid dodgerblue;
-  border-radius: 5px;
-`;
-
-const Name = styled.p`
-  width: 300px;
-  font-size: 20px;
-  color: red;
-  font-family: "Roboto", sans-serif;
-`;
-
-const View = styled.button`
-  background-color: dodgerblue;
-  height: 30px;
-  width: 120px;
-  color: white;
-  border: 0.5px solid black;
-  margin-top: 20px;
-  font-size: 17px;
-  margin-bottom: 20px;
+const CardComponent = styled.div`
+  width: 100%;
+  transition: 0.2s;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
 `;
 
 function All_Movies() {
@@ -69,52 +54,52 @@ function All_Movies() {
       <Prod_container>
         {data.map((item) => (
           <>
-            {/* <Prod_Box key={item.id}>
-              <Name>{item.name}</Name>
-              <h4>{item.description}</h4>
-              <Link to={`/movies/${item.id}`}>
-                <View onClick={() => history.push(`/movies/${item.id}`)}>
-                  more details
-                </View>
-              </Link>
-            </Prod_Box> */}
-            <Card sx={{ maxWidth: 345 }}>
-              <CardHeader
-                avatar={
-                  <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                    M
-                  </Avatar>
-                }
-                action={
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title={item.name}
-                subheader="September 14, 2016"
-              />
-              <CardMedia
-                component="img"
-                height="194"
-                image={item.image}
-                alt="Movie"
-              />
-              <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  {item.description}
-                </Typography>
-              </CardContent>
-              <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-                <Link to={`/movies/${item.id}`}>
-                  <Button onClick={() => history.push(`/movies/${item.id}`)}>
-                    more details
-                  </Button>
-                </Link>
-              </CardActions>
-            </Card>
+            <CardComponent>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardHeader
+                  avatar={
+                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                      M
+                    </Avatar>
+                  }
+                  action={
+                    <IconButton aria-label="settings">
+                      {/* <MoreVertIcon /> */}
+                    </IconButton>
+                  }
+                  title={item.name}
+                />
+                <Rating name="read-only" value={item.rating} readOnly />
+                <CardMedia
+                  component="img"
+                  height="194"
+                  image={item.image}
+                  alt="Movie"
+                />
+                <CardContent>
+                  <Typography variant="h6" color="text.secondary">
+                    {item.description}
+                  </Typography>
+                </CardContent>
+                <CardActions disableSpacing>
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to={`/movies/${item.id}`}
+                  >
+                    <Button
+                      style={{
+                        margin: "auto",
+                        backgroundColor: "dodgerblue",
+                        color: "white",
+                      }}
+                      onClick={() => history.push(`/movies/${item.id}`)}
+                    >
+                      more details
+                    </Button>
+                  </Link>
+                </CardActions>
+              </Card>
+            </CardComponent>
           </>
         ))}
       </Prod_container>
