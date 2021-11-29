@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from "react-router-dom";
+import "./App.css";
+import All_Movies from "./Components/All_Movies";
+import Home from "./Components/Home";
+import Navbar from "./Components/Navbar/Navbar";
+import Movies_id from "./Components/Movies_id";
+import About from "./Components/About";
+import Latest from "./Components/Latest";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/movies" exact={true} component={All_Movies} />
+        <Route path="/about" exact={true} component={About} />
+        <Route path="/latest-shows" exact={true} component={Latest} />
+        <Route exact path="/movies/:id" component={Movies_id} />
+      </Switch>
     </div>
   );
 }
