@@ -53,15 +53,15 @@ function All_Movies() {
 
   return (
     <div>
-      <Title>All Products</Title>
+      <Title>All Movies</Title>
       <Prod_container>
         {data.map((item) => (
           <>
-            <Prod_Box>
+            <Prod_Box key={item.id}>
               <Name>{item.name}</Name>
-              <h4>{item.price}</h4>
-              <Link to={`/products/${item.id}`}>
-                <View onClick={() => history.push(`/products/${item.id}`)}>
+              <h4>{item.released}</h4>
+              <Link to={`/movies/${item.id}`}>
+                <View onClick={() => history.push(`/movies/${item.id}`)}>
                   more details
                 </View>
               </Link>

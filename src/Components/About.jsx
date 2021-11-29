@@ -1,9 +1,14 @@
 import React from "react";
+import styled from "styled-components";
+
+const Title = styled.h1`
+  text-align: center;
+`;
 
 function About() {
   return (
     <div>
-      <h1>This is about us</h1>
+      <Title>This is about us</Title>
     </div>
   );
 }

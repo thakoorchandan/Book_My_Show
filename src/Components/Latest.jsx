@@ -1,9 +1,13 @@
 import React from "react";
+import styled from "styled-components";
+const Title = styled.h1`
+  text-align: center;
+`;
 
 function Latest() {
   return (
     <div>
-      <h1>Latest Shows</h1>
+      <Title>Latest Shows</Title>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const NavUnlisted = styled.ul`
   text-decoration: none;
-  text-align: center;
+  /* text-align: center; */
   background-color: dodgerblue;
   margin-top: 0;
   height: 60px;
@@ -13,10 +13,15 @@ const NavUnlisted = styled.ul`
 `;
 
 const linkStyle = {
-  margin: "1rem",
+  margin: "20px",
   textDecoration: "none",
   color: "blue",
 };
+
+const Authenticate = styled.div`
+  float: right;
+  width: 300px;
+`;
 
 function Navbar() {
   return (
@@ -33,6 +38,14 @@ function Navbar() {
       <Link to="/latest-shows" style={linkStyle}>
         Latest
       </Link>
+      <Authenticate>
+        <Link to="/register" style={linkStyle}>
+          Register
+        </Link>
+        <Link to="/login" style={linkStyle}>
+          Login
+        </Link>
+      </Authenticate>
     </NavUnlisted>
   );
 }

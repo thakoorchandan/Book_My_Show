@@ -54,11 +54,11 @@ function Movies_Id() {
 
   return (
     <Container>
-      <Title>Product Details</Title>
+      <Title>Movie Details</Title>
       <Prod_details>
-        <Prod_name>Product - {data.name}</Prod_name>
+        <Prod_name>Movie - {data.name}</Prod_name>
         <h1>-</h1>
-        <Prod_price>Price - {data.price}</Prod_price>
+        <Prod_price>Released - {data.released}</Prod_price>
       </Prod_details>
       <Link to="/products">
         <Button>Go back</Button>
