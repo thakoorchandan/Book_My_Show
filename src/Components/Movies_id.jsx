@@ -60,7 +60,7 @@ function Movies_Id() {
         <h1>-</h1>
         <Prod_price>Released - {data.released}</Prod_price>
       </Prod_details>
-      <Link to="/products">
+      <Link to="/movies">
         <Button>Go back</Button>
       </Link>
     </Container>
