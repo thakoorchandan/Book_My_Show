@@ -35,14 +35,14 @@ function Payment({ room, handleClose }) {
       {payment
         ? payment.map((item) => (
             <>
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-6 mx-auto mt-5">
-                    <div class="payment">
-                      <div class="payment_header">
-                        <div class="check"></div>
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6 mx-auto mt-5">
+                    <div className="payment">
+                      <div className="payment_header">
+                        <div className="check"></div>
                       </div>
-                      <div class="content">
+                      <div className="content">
                         <QRCode value="hey" />
                         <h1 style={{ color: "green" }}>Payment Success !</h1>
                         <h5>
